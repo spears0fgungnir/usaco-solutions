@@ -1,7 +1,9 @@
-include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(void){
+    freopen("shell.in","r",stdin);
+    freopen("shell.out","w",stdout);
     int t;cin>>t;
     int guesses[t*3];
     for(int i=0;i<t*3;i+=3){
@@ -12,9 +14,9 @@ int main(void){
         int shells[3]={0};
         shells[i]=1;
         int cur=0;
-        for(int i=0;i<t*3;i+=3){
-            swap(shells[guesses[i]],shells[guesses[i+1]]);
-            if(shells[guesses[i+2]])cur++;
+        for(int j=0;j<t*3;j+=3){
+            swap(shells[guesses[j]-1],shells[guesses[j+1]-1]);
+            if(shells[guesses[j+2]-1])cur++;
         }
         mx=max(cur,mx);
     }
